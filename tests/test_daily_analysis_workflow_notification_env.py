@@ -68,6 +68,18 @@ def test_daily_analysis_maps_p6_channel_env_keys() -> None:
         assert key in env
 
 
+def test_daily_analysis_maps_first_two_email_groups_from_vars_or_secrets() -> None:
+    env = _load_daily_analysis_env()
+
+    for idx in (1, 2):
+        assert env[f"STOCK_GROUP_{idx}"] == (
+            f"${{{{ vars.STOCK_GROUP_{idx} || secrets.STOCK_GROUP_{idx} }}}}"
+        )
+        assert env[f"EMAIL_GROUP_{idx}"] == (
+            f"${{{{ vars.EMAIL_GROUP_{idx} || secrets.EMAIL_GROUP_{idx} }}}}"
+        )
+
+
 def test_daily_analysis_keeps_deferred_behavior_switches_unmapped() -> None:
     env = _load_daily_analysis_env()
 
