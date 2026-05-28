@@ -285,11 +285,11 @@ jobs:
           EMAIL_SENDER_NAME: ${{ vars.EMAIL_SENDER_NAME || secrets.EMAIL_SENDER_NAME || '无铭AI开荒记🚀' }}
           
           # 新增：股票分组发件配置
-          STOCK_GROUP_1: ${{ vars.STOCK_GROUP_1 }}
-          EMAIL_GROUP_1: ${{ vars.EMAIL_GROUP_1 }}
+          STOCK_GROUP_1: ${{ vars.STOCK_GROUP_1 || secrets.STOCK_GROUP_1 }}
+          EMAIL_GROUP_1: ${{ vars.EMAIL_GROUP_1 || secrets.EMAIL_GROUP_1 }}
           
-          STOCK_GROUP_2: ${{ vars.STOCK_GROUP_2 }}
-          EMAIL_GROUP_2: ${{ vars.EMAIL_GROUP_2 }}
+          STOCK_GROUP_2: ${{ vars.STOCK_GROUP_2 || secrets.STOCK_GROUP_2 }}
+          EMAIL_GROUP_2: ${{ vars.EMAIL_GROUP_2 || secrets.EMAIL_GROUP_2 }}
           # 如果你有更多分组，请按相同格式继续往下添加 STOCK_GROUP_3, EMAIL_GROUP_3 等...
           
           # 方式五：Pushover
