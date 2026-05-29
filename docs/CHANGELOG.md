@@ -48,6 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - [修复] 为 Akshare 新浪/腾讯 A 股历史兜底接口增加调用级超时，并补齐 Tushare `605xxx` 沪市代码路由回归测试，避免定时分析因数据源无响应而挂起。
 - [修复] 将 `exchange-calendars` 依赖下限提升到 `4.13.0`，避免 pandas 3 环境导入交易日历时因 Timedelta 单位 `T` 失效导致分析失败。
 - [测试] 执行 `python -c "import exchange_calendars as xcals; xcals.get_calendar('XSHG'); print('ok')"` 通过验证，以覆盖导入与交易日历初始化兼容性。
+- [修复] GitHub Actions 日常分析 workflow 显式映射前两组 `STOCK_GROUP_N` / `EMAIL_GROUP_N`，并支持从 Variables 或 Secrets 读取，修复股票分组邮件在 Actions 中未生效的问题。
+- [改进] GitHub Actions 日常分析定时触发默认改为 `stocks-only`，仅生成个股分析报告；手动触发仍可选择完整分析或仅大盘复盘。
 
 ## [3.18.0] - 2026-05-21
 
