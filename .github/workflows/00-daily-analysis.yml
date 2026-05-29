@@ -1,4 +1,4 @@
-name: 每日股票分析
+name: Daily Stock Analysis
 
 on:
   # 定时触发 - 每天北京时间 16:50 (UTC 08:50)
@@ -11,7 +11,7 @@ on:
       mode:
         description: '运行模式'
         required: true
-        default: 'full'
+        default: 'stocks-only'
         type: choice
         options:
           - full          # 完整分析（股票+大盘）
